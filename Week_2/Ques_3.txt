@@ -1,28 +1,25 @@
 #include <iostream>
 using namespace std;
-
-void find_triplet_indices(int arr[], int n) {
-    for (int k = n - 1; k >= 0; --k) {
-        int i = 0;
-        int j = k - 1;
-        while (i < j) {
-            int sum = arr[i] + arr[j];
-            if (sum == arr[k]) {
-                cout << i+1 << ", " << j+1 << ", " << k+1 << endl;
-                return;
-            } else if (sum < arr[k]) {
-                ++i;
-            } else {
-                --j;
-            }
+int find_triplet_indices(int arr[], int n, int k) {
+    int i = 0,f=0;
+    int j = n - 1;
+    while (i < j) {
+        int sum = arr[i] + arr[j];
+        if (sum == arr[k]) {
+            cout << i + 1 << ", " << j + 1 << ", " << k + 1 << endl;
+            f=1;
+        }
+        if (sum < arr[k]) {
+            ++i;
+        } else {
+            --j;
         }
     }
-
-    cout << "No sequence found" << endl;
+    return f;
 }
 
 int main() {
-    int T;
+    int T,x;
     cin >> T;
 
     for (int t = 0; t < T; ++t) {
@@ -32,9 +29,14 @@ int main() {
         for (int i = 0; i < n; ++i) {
             cin >> arr[i];
         }
-
-        find_triplet_indices(arr, n);
+        x=0;
+        for (int i = 0; i < n; ++i) {
+            x=find_triplet_indices(arr, n, i);
+        }
+        if(!x)
+        {
+            cout<<"No Sequennce Found";
+        }
     }
-
     return 0;
 }
