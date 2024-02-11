@@ -47,7 +47,7 @@ int main() {
         cin >> key;
         pair<int, int> result = count_occurrences(arr, n, key);
         if (result.second > 0) {
-            cout << result.first << " " << result.second << endl;
+            cout << result.first << " - " << result.second << endl;
         } else {
             cout << "Key not present" << endl;
         }
