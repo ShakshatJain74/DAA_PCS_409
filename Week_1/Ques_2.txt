@@ -41,12 +41,12 @@ int main() {
         pair<bool, int> result = binarySearch(arr, n, key);
 
         if (result.first) {
-            cout << "Element found in the array.\n";
+            cout << "Present ";
         } else {
-            cout << "Element not found in the array.\n";
+            cout << "Not Present";
         }
 
-        cout << "Total number of comparisons: " << result.second << endl;
+        cout << " " << result.second << endl;
     }
 
     return 0;
